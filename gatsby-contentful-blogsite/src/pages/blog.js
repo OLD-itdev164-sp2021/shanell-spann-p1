@@ -69,4 +69,4 @@ const Blog = () => {
   )
 }
 
-export default Blog
+export default Blog;
