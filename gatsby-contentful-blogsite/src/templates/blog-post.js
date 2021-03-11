@@ -24,6 +24,16 @@ export const query = graphql`
 `
 
 const BlogPost = props => {
+    const options = {
+        renderNode: {
+          "embedded-asset-block": node => {
+            const alt = node.data.target.fields.title["en-US"]
+            const url = node.data.target.fields.file["en-US"].url
+            return <img alt={alt} src={url} />
+          },
+        },
+      }
+
     return (
       <Layout>
         <SEO title={props.data.contentfulBlogPost.title} />
@@ -38,7 +48,7 @@ const BlogPost = props => {
             />
           )}
   
-          {documentToReactComponents(props.data.contentfulBlogPost.body.json)}
+          {documentToReactComponents(props.data.contentfulBlogPost.body.json, options)}
         </div>
       </Layout>
     )
