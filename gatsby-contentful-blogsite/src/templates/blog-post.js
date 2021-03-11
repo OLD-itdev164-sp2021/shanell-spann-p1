@@ -17,7 +17,7 @@ export const query = graphql`
         }
       }
       body {
-        json
+        raw
       }
     }
   }
@@ -48,7 +48,7 @@ const BlogPost = props => {
             />
           )}
   
-          {documentToReactComponents(props.data.contentfulBlogPost.body.json, options)}
+          {documentToReactComponents(props.data.contentfulBlogPost.body.raw, options)}
         </div>
       </Layout>
     )
